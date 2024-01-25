@@ -22,7 +22,12 @@ public:
         return 2*(length + breadth);
     }
 
+    ~Rectangle (){
+        cout << "Finish" << endl ;
+    }
+
 };
+
 int main(){
 
     int l,b;
