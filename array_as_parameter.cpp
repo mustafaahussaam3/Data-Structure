@@ -20,6 +20,7 @@
     ** array is passed by address from main and its never passed by value 
     so, array passed by address and it recieved to the funtions through pointer 
     
+    Author: Mustafa Hussam Eldin
 */
 
 

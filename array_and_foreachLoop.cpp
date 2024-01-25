@@ -21,7 +21,7 @@ using namespace std ;
 void fun( int * A){
 
     for (int i = 0; i < 5; ++i)
-    cout << A <<" ";
+    cout << A[i] <<" ";
 
 }
 
