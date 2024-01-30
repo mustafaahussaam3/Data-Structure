@@ -1,3 +1,11 @@
+/*
+    if the recursive call is the first statement in the recursive function then it's a head recursion 
+    ** all the statements is occur at the returning time 
+
+    @ Mustafa Hussam Eldin 
+*/
+
+
 #include <iostream>
 
 using namespace std;
