@@ -18,6 +18,6 @@ double exp(int x, int n)
 
 int main ()
 {   
-    cout << exp(2,15) << endl ;
+    cout << exp(1,10) << endl ;
     return 0;
 }

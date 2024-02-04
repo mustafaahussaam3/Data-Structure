@@ -7,7 +7,15 @@ int main (){
 
     int x[5]={1,2,3,4,5}; 
 
-    cout<< *x + 3 << endl; //*x + 4 = x[3]
+    for (int i = 0; i < 5 ; i++)
+    {
+        cout << &x[i] << endl ;
+        cout << *(x + i) << endl ;
+        cout << x[i] << endl ; 
+        cout << *x + i << endl ;
+        
+    }
+
 
 
 
