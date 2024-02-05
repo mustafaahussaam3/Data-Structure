@@ -16,7 +16,4 @@ int main (){
         cout << x + i << endl;
     }
 
-
-
-
 }
