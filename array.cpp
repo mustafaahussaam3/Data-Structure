@@ -13,7 +13,7 @@ int main (){
         cout << *(x + i) << endl ;
         cout << x[i] << endl ; 
         cout << *x + i << endl ;
-        
+        cout << x + i << endl;
     }
 
 
