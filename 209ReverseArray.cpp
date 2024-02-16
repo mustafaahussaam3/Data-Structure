@@ -1,3 +1,7 @@
+/*
+    Remember That you can copy an entair whole array without for loop
+*/
+
 #include <iostream>
 
 using namespace std ; 
@@ -164,12 +168,34 @@ float Avg(Array arr)
 
 void Reverse (Array *arr)
 {
-        int temp[arr->length] = {0};
-        temp[] = arr->A[];
-
-    for (int i =0; i < arr->length ; i++)
+    for (int i = 0, j = arr->length - 1; i<j ;i++, j--)
     {
-        arr->A[i] = temp[arr->length - (i-1)];
+        int temp = arr->A[i];
+        arr->A[i] = arr->A[j];
+        arr->A[j] = temp;
+    }
+}
+
+void Reverse_Swap (Array *arr)
+{
+    for (int i = 0, j = arr->length - 1; i<j ;i++, j--)
+    { 
+        swap(&arr->A[i], &arr->A[j]) ;
+    }
+}
+
+void Reverse2 (Array *arr)
+{
+    int *B;
+    B = (int*)malloc(arr->length*sizeof(int));
+    for (int i = arr->length -1 , j = 0; i >=0 ; i--, j++)
+    {
+        B[j] = arr->A[i];
+    }
+
+    for (int i = 0; i < arr->length -1; i++)
+    {
+        arr->A[i] = B[i];
     }
 }
 
@@ -194,7 +220,7 @@ int main ()
     cout << Min(arr) << endl;
     cout << Sum(arr) << endl;
     cout << Avg(arr) << endl;
-    Reverse(&arr);
+    Reverse2(&arr);
     Display(arr);
     return 0 ;
 }

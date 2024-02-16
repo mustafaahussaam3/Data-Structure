@@ -1,3 +1,7 @@
+/*
+    Remember That you can copy an entair whole array without for loop
+*/
+
 #include <iostream>
 
 using namespace std ; 
@@ -164,37 +168,67 @@ float Avg(Array arr)
 
 void Reverse (Array *arr)
 {
-        int temp[arr->length] = {0};
-        temp[] = arr->A[];
-
-    for (int i =0; i < arr->length ; i++)
+    for (int i = 0, j = arr->length - 1; i<j ;i++, j--)
     {
-        arr->A[i] = temp[arr->length - (i-1)];
+        int temp = arr->A[i];
+        arr->A[i] = arr->A[j];
+        arr->A[j] = temp;
     }
+}
+
+void Reverse_Swap (Array *arr)
+{
+    for (int i = 0, j = arr->length - 1; i<j ;i++, j--)
+    { 
+        swap(&arr->A[i], &arr->A[j]) ;
+    }
+}
+
+void Reverse2 (Array *arr)
+{
+    int *B;
+    B = (int*)malloc(arr->length*sizeof(int));
+    for (int i = arr->length -1 , j = 0; i >=0 ; i--, j++)
+    {
+        B[j] = arr->A[i];
+    }
+
+    for (int i = 0; i < arr->length -1; i++)
+    {
+        arr->A[i] = B[i];
+    }
+}
+
+void insertSort(Array *arr, int x)
+{
+    if ( arr->length == arr->size) return ;
+    int i = arr->length - 1;
+    while (arr->A[i] > x)
+    {
+        arr->A[i+1] = arr->A[i];
+        i--;
+    }
+    arr->A[i+1] = x;
+    arr->length ++;
+}
+
+int isSorted(Array *arr)
+{
+    for (int i = 0; i < arr->length - 1; i++)
+    {
+        if ( arr->A[i] > arr->A[i+1])
+        {
+            return 0;
+        } 
+    }
+    return 1;
 }
 
 int main ()
 {
-    Array arr = {{2,3,4,5,6,2,5,20,7},10,9};
-    // Display(arr);
-    // Append(&arr,7);
-    // Display(arr);
-    // Insert(&arr,9,8);
-    // Display(arr);
-    // int x = Delete(&arr, 3) ;
-    // cout << x << endl;
-    // int x = LinearSearch(&arr,3);  
-    // cout << x << endl;
-    // int y = 1%2;
-    // cout << y << endl;
-    // printf("%d", BinarySearch(arr,6));
-    // Display(arr);
-    // cout << Get(arr, 3) << endl;
-    cout << Max(arr) << endl;
-    cout << Min(arr) << endl;
-    cout << Sum(arr) << endl;
-    cout << Avg(arr) << endl;
-    Reverse(&arr);
+    Array arr = {{2,4,6,8,10},10,5};
+
+    cout << isSorted(&arr) << endl;
     Display(arr);
     return 0 ;
 }
