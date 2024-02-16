@@ -146,7 +146,26 @@ int Min(Array arr)
     return min;
 }
 
-int main () 
+int Sum (Array arr)
+{
+    int total = 0;
+    for (int i = 0; i < arr.length; i++)
+    {
+        total = total + arr.A[i];
+    }
+    return total;
+}
+
+int Avg(Array arr)
+{
+    int total = 0;
+    for (int i = 0; i < arr.length; i++)
+    {
+        total = total + arr.A[i];
+    }
+    return total/(arr.length);
+}
+int main ()
 {
     Array arr = {{2,3,4,5,6,2,5,20,7},10,9};
     // Display(arr);
@@ -165,6 +184,7 @@ int main ()
     // cout << Get(arr, 3) << endl;
     cout << Max(arr) << endl;
     cout << Min(arr) << endl;
-
+    cout << Sum(arr) << endl;
+    cout << Avg(arr) << endl;
     return 0 ;
 }
