@@ -235,11 +235,40 @@ void Rearrange(Array *arr)
         if ( i < j) swap(&arr->A[i], &arr->A[j]);
     }
 }
+
+int *Merge(Array *arr, Array *arr2)
+{
+    int i = 0; 
+    int j = 0;
+    int k = 0;
+    int *C = (int*)malloc((arr->length + arr2->length)*sizeof(int));
+    while ( i < arr->length && j < arr2->length)
+    {
+        if ( arr->A[i] < arr2->A[j])
+            C[k++] = arr->A[i++];
+        else 
+            C[k++] = arr2->A[j++];
+    }
+    for (; i < arr->length ; i++)
+    {
+        C[k++] =  arr ->A[i];
+    }
+    for (; j < arr2->length ; j++)
+    {
+        C[k++] =  arr2->A[j];
+    }
+    return C;
+}
+
 int main ()
 {
-    Array arr = {{-2,-4,6,-8,10},10,5};
+    Array arr = {{2,4,6,8,10,12},10,6};
+    Array arr2 =  {{1,3,5,7,9,11},10,6};
 
-    Rearrange(&arr);
-    Display(arr);
+    int * x = Merge(&arr, &arr2);
+    for (int i = 0; i < (arr.length + arr2.length); i++)
+    {
+        cout << x[i];
+    }
     return 0 ;
 }
