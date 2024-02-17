@@ -287,12 +287,43 @@ Array* Merge2(Array* arr1, Array* arr2)
     arr3->length = arr1->length + arr2->length ;
     return arr3;
 }
+
+Array* UnionSorted(Array *arr1, Array *arr2)
+{
+    int i,j,k;
+    i = j = k = 0;
+    Array* arr3 = (Array *)malloc(sizeof(Array));
+
+    while ( i < arr1->length && j < arr2->length)
+    {
+        if (arr1->A[i] < arr2->A[j])
+            arr3->A[k++] = arr1 ->A[i++];
+        else if (arr1 ->A[i] > arr2->A[j] )
+            arr3->A[k++] = arr2 ->A[j++];
+        else 
+        {
+            arr3->A[k++] = arr1 -> A[i++];
+            j++;
+        }
+    }
+
+    for (;i < arr1->length; i++)
+        arr3->A[k++] = arr1 ->A[i++];
+    for (;j < arr2->length; j++)
+        arr3->A[k++] = arr2 ->A[j++];
+ 
+    arr3->length = k ;
+    arr3->size = arr2->size + arr1->size;
+    return arr3 ;
+}
 int main ()
 {
-    Array arr1 = {{2,4,6,8,10,12},10,6};
+    Array arr1 = {{2,4,7,8,11,12},10,6};
     Array arr2 =  {{1,3,5,7,9,11},10,6};
-    Array* arr3;
-    arr3 = Merge2(&arr1, &arr2);
-    Display(*arr3);    
+    Array* arr3; 
+
+    arr3 = UnionSorted(&arr1, &arr2);
+    Display(*arr3);
+    
     return 0 ;
 }
