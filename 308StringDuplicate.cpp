@@ -9,7 +9,7 @@ using namespace std;
 
 int main()
 {
-    char A[] = "hhhhwewensnkldnfsdksoekasndknsdjm" ;
+    char A[] = "finding" ;
     int H[26] = {0};
 
     for ( int i = 0 ; A[i] != '\0' ; i++)

@@ -1,6 +1,7 @@
 {
     "ros.distro": "noetic",
     "files.associations": {
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "iostream": "cpp"
     }
 }
