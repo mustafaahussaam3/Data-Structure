@@ -31,13 +31,47 @@ void Display (struct Node *p)
 {
     while (p != NULL)
     {
-        cout << p->data << endl ;
+        cout << p->data ;
         p = p->next ;
+    }
+    cout << endl;
+}
+
+void RDisplay (struct Node *p)
+{
+    if ( p != NULL)
+    {
+        RDisplay(p->next);
+        cout << p->data << endl ;
     }
 }
 
+int CountNodes (struct Node *p)
+{
+   int c = 0;
+   while (p != 0)
+   {
+        c++;
+        p = p ->next ;
+   }
+   return c;
+}
+int CountNodesRecursion ( struct Node *p)
+{
 
+    if (p == 0)
+        return 0;
+    else 
+        return CountNodesRecursion(p->next) + 1;
+}
 
+int AddNodes( struct Node *p)
+{   
+    if ( p == 0)
+        return 0;
+    else 
+        return AddNodes(p->next) + p->data;
+}
 int main ()
 {
     
@@ -45,6 +79,10 @@ int main ()
 
     Create(A,8);
     Display(first);
-
+    RDisplay(first);
+    cout << CountNodes(first) << endl;
+    cout << CountNodesRecursion(first) << endl ;
+    cout << AddNodes(first) << endl;
     return 0; 
+
 }

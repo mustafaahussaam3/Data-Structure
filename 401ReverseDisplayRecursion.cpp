@@ -31,12 +31,20 @@ void Display (struct Node *p)
 {
     while (p != NULL)
     {
-        cout << p->data << endl ;
+        cout << p->data ;
         p = p->next ;
     }
+    cout << endl;
 }
 
-
+void RDisplay (struct Node *p)
+{
+    if ( p != NULL)
+    {
+        RDisplay(p->next);
+        cout << p->data ;
+    }
+}
 
 int main ()
 {
@@ -45,6 +53,6 @@ int main ()
 
     Create(A,8);
     Display(first);
-
+    RDisplay(first);
     return 0; 
 }
