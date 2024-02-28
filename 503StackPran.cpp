@@ -5,7 +5,7 @@ using namespace std;
 class Node 
 {
 public:
-    int data;
+    char data;
     Node *next;
 };
 
@@ -16,12 +16,13 @@ private:
 
 public:
     Stack(){ top = NULL;}
-    void push(int x);
-    int pop();
+    void push(char x);
+    char pop();
     void Display();
+    int isBalance(string s);
 };
 
-void Stack::push (int x)
+void Stack::push (char x)
 {
     Node *t = new Node;
     if (t == NULL)
@@ -36,9 +37,9 @@ void Stack::push (int x)
     }
 }
 
-int Stack::pop()
+char Stack::pop()
 {
-    int x = -1;
+    char x = -1;
     Node *t = new Node;
     if (top == NULL)
     {
@@ -57,7 +58,7 @@ int Stack::pop()
 void Stack::Display()
 {
     Node *p;
-    p =top;   
+    p = top;   
     while (p != NULL)
     {
         cout << p->data << " "; 
@@ -66,14 +67,29 @@ void Stack::Display()
     cout << endl;
 }
 
+int Stack::isBalance(string s)
+{    
+    for (int i =0; s[i]!= '\0' ; i++)
+    {
+        if (s[i] == '(')
+            push(s[i]);
+        else if (s[i] == ')')
+        {
+            if (top == NULL)
+                return 0;
+            else 
+                pop();    
+        }
+    }
+    if (top == NULL)
+        return 1;
+    else 
+        return 0;
+}
 int main()
 {
     Stack stk;
-    stk.push(10);
-    stk.push(20);
-    stk.push(30);
-
-    stk.Display();    
-    cout << stk.pop() << endl;
+    string s = "((a+b)*(c-d))()()(()))";
+    cout << stk.isBalance(s);
     return 0;
 }
