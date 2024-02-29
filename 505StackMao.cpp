@@ -6,7 +6,6 @@
 
 using namespace std;
 
-
 string isBalanced(string s)
 {
 
@@ -57,6 +56,9 @@ int main ()
  
     string C = "{([{a+b]*[c-d])/e}";
     cout << isBalanced(C) << endl;
+
+    string D = "a+b";
+    cout << isBalanced(D) << endl;
 
     return 0;
 }

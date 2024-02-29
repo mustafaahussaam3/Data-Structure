@@ -20,7 +20,12 @@ int main ()
     {   
         cout << it->first << " " << it->second << endl;
     }
+
+    char *s;
+    s = {'a','b','c','d'};
+        
     return 0;
+
 }
 
     // string s = {"12, 2, 3, 4, 5"};
