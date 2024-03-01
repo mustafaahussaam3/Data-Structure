@@ -110,9 +110,8 @@ int Eval(string s)
             }
             st.push(r);
         }   
-    } 
-
-    return st.top();
+        } 
+        return st.top();
 }   
 
 int main ()
