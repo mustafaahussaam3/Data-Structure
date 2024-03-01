@@ -1,3 +1,15 @@
+/*
+    you can add what you want of operators and change only in the table 
+
+    symb  outpre  instackpre
+    +,-     1          2
+    *,-     3          4
+    ^       6          5
+    (       7          0
+    )       0          ?
+    
+*/
+
 #include <iostream>
 #include <stack>
 #include <string>
