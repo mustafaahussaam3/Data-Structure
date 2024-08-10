@@ -293,6 +293,8 @@ int main ()
     Array arr2 =  {{1,3,5,7,9,11},10,6};
     Array* arr3;
     arr3 = Merge2(&arr1, &arr2);
+
+    
     Display(*arr3);    
     return 0 ;
 }
