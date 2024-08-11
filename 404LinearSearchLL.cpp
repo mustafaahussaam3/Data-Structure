@@ -108,20 +108,25 @@ Node* Search ( Node* p, int key)
 {
     while (p)
     {
-        if ( p->data == key)
-            return p;
+     if ( p->data == key)
+         return p;
         p = p->next;
     }
     return NULL;
 }
 
+// Node* LSearch 
 int main ()
 {
-    
+    struct Node *temp;
     int A[] = {3,5,7,10,25,50,8,32,2};
-    Create(A,8);
+    Create(A,9);
  
-    cout << RSearch(first,2) << endl;
+    temp = Search(first, 2);
+    if (temp)
+        cout << "key is found " << temp->data << endl;
+    else 
+        cout << "key not found " << endl; 
      
     return 0; 
 
