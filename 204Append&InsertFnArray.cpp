@@ -34,7 +34,7 @@ void Insert(Array *arr, int index, int x)
             arr->A[i] = arr->A[i-1];
         }
         arr->A[index] = x;
-        arr->length ++ ;
+        arr->length++ ;
     }
 }
 
@@ -44,7 +44,7 @@ int main ()
     Display(arr);
     Append(&arr,7);
     Display(arr);
-    Insert(&arr,9,8);
+    Insert(&arr,0,8);
     Display(arr);
 
     return 0 ;

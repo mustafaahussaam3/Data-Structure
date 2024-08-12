@@ -56,7 +56,6 @@ int CountNodes (struct Node *p)
    }
    return c;
 }
-
 int CountNodesRecursion ( struct Node *p)
 {
 
@@ -74,17 +73,80 @@ int AddNodes( struct Node *p)
         return AddNodes(p->next) + p->data;
 }
 
+int Max( struct Node *p)
+{
+    int max = INT32_MIN ;
+    while (p)
+    {
+        if ( p->data > max )
+            max = p->data;
+        p = p->next ;  
+    }
+    return max;
+}
+
+int RMax ( struct Node *p)
+{
+    int max = 0;
+
+    if (!p)
+        return INT32_MIN;
+    max = RMax(p->next);
+    return max > p->data ? max : p->data ;
+}
+
+Node* RSearch ( Node* p, int key)
+{
+    if (!p)
+        return NULL;
+    if ( p->data == key )
+        return p;
+    return RSearch(p->next, key);
+}
+
+Node* Search ( Node* p, int key)
+{
+    while (p)
+    {
+     if ( p->data == key)
+         return p;
+        p = p->next;
+    }
+    return NULL;
+}
+
+Node* LSearch ( Node* p, int key)
+{
+    Node* q = NULL;
+    while (p)
+    {
+        if ( p->data == key)
+        {
+            q->next = p->next;
+            p->next = first;
+            first = p;
+            return p;
+        }
+            q = p;
+            p = p->next;
+    }
+    return NULL;
+}
+
+void Insert
 int main ()
 {
-    
-    int A[] = {3,5,7,10,25,8,32,2};
+    struct Node *temp;
+    int A[] = {3,5,7,10,25,50,8,32,2};
+    Create(A,9);
 
-    Create(A,8);
+    temp = LSearch(first, 32);
+    temp = LSearch(first, 25);
+    if (temp)
+        cout << "key is found " << temp->data << endl;
+    else 
+        cout << "key not found " << endl; 
     Display(first);
-    RDisplay(first);
-    cout << CountNodes(first) << endl;
-    cout << CountNodesRecursion(first) << endl ;
-    cout << AddNodes(first) << endl;
     return 0; 
 
 }

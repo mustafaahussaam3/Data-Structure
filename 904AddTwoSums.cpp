@@ -70,16 +70,17 @@ void Display (struct Node *p)
     }
     res = (l1->data + l2->data) * count + res;
     count = count * 10 ;
-    addTwoNumbers(l1->next, l2->next);
+    return addTwoNumbers(l1->next, l2->next);  
+    
 }
 
 int main ()
 {
-    int l1[] = {9,9,9,9,9};
+    int l1[] = {9,9,9,9,9,9,9};
     int l2[] = {9,9,9,9};
 
-    Create (l1, 5);
-    Creates(l2, 4);
+    Create (l1, 7);
+    Creates(l2, 7);
 
     addTwoNumbers(first, second);
     cout << res << endl; 
