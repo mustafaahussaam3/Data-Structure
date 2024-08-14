@@ -1,5 +1,5 @@
 /*
-    Remember That you can copy an entair whole array without for loop
+    Remember That you can copy an entire whole array without for loop
 */
 
 #include <iostream>

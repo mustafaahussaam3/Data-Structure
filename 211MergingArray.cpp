@@ -16,17 +16,17 @@ void swap ( int *x, int *y)
 
 struct Array 
 {
-    int A[10];
+    int A[20];
     int size; 
     int length;
 };
 
-void Display(Array arr)
+void Display(Array *arr)
 {
     printf ("\nElements \n");
-    for (int i =0; i < arr.length; i++)
+    for (int i =0; i < arr->length; i++)
     {
-        printf("%d", arr.A[i]);
+        printf("%d \t", arr->A[i]);
     }
     printf("\n");
 }
@@ -80,6 +80,7 @@ int LinearSearch ( Array *arr, int key)
     return -1;
 }
 
+// must be sorted array 
 int BinarySearch ( Array arr, int key)
 {
     int l = 0;
@@ -224,6 +225,10 @@ int isSorted(Array *arr)
     return 1;
 }
 
+/*
+put positive value on right and negative values on left 
+*/
+
 void Rearrange(Array *arr)
 {
     int j = arr->length -1 ;
@@ -236,6 +241,9 @@ void Rearrange(Array *arr)
     }
 }
 
+/*
+    must be sorted arrays 
+*/
 int *Merge(Array *arr, Array *arr2)
 {
     int i = 0; 
@@ -278,23 +286,23 @@ Array* Merge2(Array* arr1, Array* arr2)
     }
     for (;i < arr1->length; i++)
     {
-        arr3->A[k++] = arr1 ->A[i++];
+        arr3->A[k++] = arr1 ->A[i];
     }
     for (;j < arr2->length; j++)
     {
-        arr3->A[k++] = arr2 ->A[j++];
+        arr3->A[k++] = arr2 ->A[j];
     }
     arr3->length = arr1->length + arr2->length ;
     return arr3;
 }
 int main ()
 {
-    Array arr1 = {{2,4,6,8,10,12},10,6};
-    Array arr2 =  {{1,3,5,7,9,11},10,6};
+    Array arr1 = {{2,3,4,6,8,10,12,13,17,20,21,25},20,12};
+    Array arr2 =  {{1,5,7,9,11},20,5};
     Array* arr3;
+
     arr3 = Merge2(&arr1, &arr2);
 
-    
-    Display(*arr3);    
+    Display(arr3);    
     return 0 ;
 }
