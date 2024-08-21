@@ -133,6 +133,7 @@ int isFull(struct Stack st)
     else 
         return 0;
 }
+
 int stackTop(struct Stack st)
 {
     if (!isEmpty(st))
@@ -140,6 +141,7 @@ int stackTop(struct Stack st)
     else 
         return -1;
 }
+
 int main()
 {
   int a[] = {1,2,3,4,5,6,7,8,9};
