@@ -44,7 +44,7 @@ int pop (struct Stack *st)
         printf("Stack Underflow \n");
     else 
     {
-        x = st->S[st->top--] ;
+        x = st->S[st->top--] ; // index = top_stack - position -1 
     }
     return x;   
 } 
@@ -55,7 +55,7 @@ int peek (struct Stack st, int index)
     if ( (st.top - index + 1) < 0)
         printf ("Invalif Index \n");
     else 
-        x = st.S[st.top - index + 1];
+        x = st.S[st.top - index + 1];  // index = top_stack - position + 1
     return x;
 }
 

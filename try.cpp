@@ -60,17 +60,113 @@ struct Stack{
     int* S;
 };
 
-void create_st()
+void create_st(struct Stack *s)
 {
-    
+    printf("Enter Stack Size \n");
+    scanf("%d", &s->size);
+    s->top = -1;
+    s->S = (int*)malloc(s->size*sizeof(int));
 }
 
+void display_st(struct Stack s)
+{
+   for ( int i = s.top ; i >=0; i--)
+   {
+    cout << s.S[i];
+   }
+   cout << endl;
+}
+
+void push ( struct Stack *s, int data)
+{
+    if ( s->top == (s->size - 1) )
+    {
+        cout << "stack overflow" << endl;
+    }
+    else
+    {
+     s->top ++;
+     s->S[s->top] = data;
+    }
+}
+
+int pop ( struct Stack *s)
+{
+    int x = -1;
+    if (s->top == -1)
+    {
+        cout << "stack underflow" << endl;
+    }
+    else 
+    {
+        x = s->S[s->top--];
+    }
+    return x;
+}
+
+int peek (struct Stack *s, int index)
+{
+    int x = -1;
+    if ( (s->top - index + 1) < 0) 
+    {
+        cout << " not valid index" << endl;
+    }
+    else 
+    {
+        x = s->S[s->top - index + 1];
+    }
+    return x ;
+}
+
+int isEmpty(struct Stack st)
+{
+    if (st.top == -1)
+        return 1;
+    else 
+        return 0;
+}
+
+int isFull(struct Stack st)
+{
+    if (st.top == (st.size - 1))
+        return 1;
+    else 
+        return 0;
+}
+int stackTop(struct Stack st)
+{
+    if (!isEmpty(st))
+        return st.S[st.top] ;
+    else 
+        return -1;
+}
 int main()
 {
   int a[] = {1,2,3,4,5,6,7,8,9};
   create_ll(a,9);
   cout << count_ll(first) << endl;
   display_ll(first);
+
+  Stack s;
+  create_st (&s);
+  cout << "STACK" << endl;
+  display_st(s);
+  push(&s,5);
+  push(&s,6); 
+  push(&s,7);
+  push(&s,8);
+  push(&s,9);
+
+//   cout << "STACK" << endl;
+//   cout << pop(&s) << endl;
+//   cout << pop(&s) << endl;
+//   cout << pop(&s) << endl;
+//   cout << pop(&s) << endl;
+//   cout << pop(&s) << endl;
+  
+  display_st(s);
+  cout << "Peek" << peek(&s,1);
+
 }
 
 
